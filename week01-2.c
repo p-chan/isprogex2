@@ -2,7 +2,7 @@
 
 int main(void) {
   FILE *fp;
-  fp = fopen("./src/helloworld.txt", "w");
+  fp = fopen("./_source/helloworld.txt", "w");
 
   if (fp == NULL) {
     printf("ファイルをオープンできませんでした。\n");
