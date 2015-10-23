@@ -12,7 +12,6 @@ int main(void) {
   printf("名前を最大5人分入力してください.\n");
   for (i = 0; i < 5 ; i++) {
     // 文字列取得
-
     // 終了の場合forから抜ける
     if (scanf("%s", tmp) == EOF) {
       printf("ctrl+d\n");
