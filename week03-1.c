@@ -11,7 +11,7 @@ int main(void) {
   scanf("%d", &max);
 
   // メモリ確保
-  str1 = (char *)malloc(max);
+  str1 = (char *)malloc(max+1);
   if (str1 == NULL) {
     printf("メモリの確保に失敗しました.\n");
     return -1;
