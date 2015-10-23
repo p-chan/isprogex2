@@ -1,28 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define STR_SIZE 1024
+#define MAX 256
 
 typedef struct gift_t {
-  char code[STR_SIZE];
-  char name[STR_SIZE];
+  char code[MAX];
+  char name[MAX];
   int price;
 } gift;
 
 int main(void) {
-  int n, i;
+  int i, n;
   gift *gifts[512];
-  char filePath[STR_SIZE];
+  char inputFilePath[MAX];
+  char outputFilePath[MAX];
   FILE *fp;
 
   printf("データ数を入力してください：");
   scanf("%d", &n);
 
-  printf("ファイル名を指定してください：");
-  scanf("%s", filePath);
+  printf("入力ファイル名を指定してください：");
+  scanf("%s", inputFilePath);
+
+  printf("出力ファイル名を指定してください：");
+  scanf("%s", outputFilePath);
 
   // インプット
-  fp = fopen(filePath, "r");
+  fp = fopen(inputFilePath, "r");
   for (i = 0; i < n; i++) {
     gifts[i] = (gift *)malloc(sizeof(gift));
     fscanf(fp, "%s %s %d", gifts[i]->code, gifts[i]->name, &(gifts[i]->price));
@@ -30,7 +34,7 @@ int main(void) {
   fclose(fp);
 
   // アウトプット
-  fp = fopen("./_build/output.txt", "w");
+  fp = fopen(outputFilePath, "w");
   for (i = 0; i < n; i++) {
     fprintf(fp, "code: %s\n", gifts[i]->code);
     fprintf(fp, "name: %s\n", gifts[i]->name);
